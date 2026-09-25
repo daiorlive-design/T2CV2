@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.cdnfonts.com/css/opendyslexic");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Dark theme (default) */
+:root {
+  --color-bg: #0c0d11;
+  --color-surface: #131419;
+  --color-surface-2: #1a1b23;
+  --color-surface-3: #22232e;
+  --color-border: #2a2b38;
+  --color-border-light: #333442;
+  --color-accent: #7c6df0;
+  --color-accent-soft: rgba(124, 109, 240, 0.12);
+  --color-accent-glow: rgba(124, 109, 240, 0.25);
+  --color-accent-bright: #a29bfe;
+  --color-success: #34d399;
+  --color-warning: #f0a03c;
+  --color-danger: #e17055;
+  --color-text: #e2e3ea;
+  --color-user-bubble-bg: #232040;
+  --color-user-bubble-border: #3a3468;
+  --color-code-bg: #0f1018;
+  --color-code-text: #d1d5db;
+  --color-input-text: #e5e7eb;
+  --color-scrollbar: #2a2b38;
+}
+
+/* Light / cream theme */
+.light {
+  --color-bg: #faf8f4;
+  --color-surface: #f3f0e9;
+  --color-surface-2: #edeae2;
+  --color-surface-3: #e4e0d7;
+  --color-border: #d5cfc5;
+  --color-border-light: #c9c2b7;
+  --color-accent: #6c5ce7;
+  --color-accent-soft: rgba(108, 92, 231, 0.10);
+  --color-accent-glow: rgba(108, 92, 231, 0.22);
+  --color-accent-bright: #8b7ff5;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger: #dc4f37;
+  --color-text: #302b26;
+  --color-user-bubble-bg: #ece9fb;
+  --color-user-bubble-border: #d4cef8;
+  --color-code-bg: #f0ece3;
+  --color-code-text: #374151;
+  --color-input-text: #1c1917;
+  --color-scrollbar: #d5cfc5;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar);
+  border-radius: 3px;
+}
+
+/* Textarea scrollbar - thin and themed */
+textarea::-webkit-scrollbar {
+  width: 10px;
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar);
+  border-radius: 3px;
+  border-right: 4px solid transparent;
+  background-clip: padding-box;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-light);
+  background-clip: padding-box;
+}
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar) transparent;
+}
+
+/* Prose theme colors - use CSS variables so it works in both dark and light mode */
+.prose {
+  color: var(--color-text);
+}
+
+.prose strong {
+  color: var(--color-text);
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  color: var(--color-text);
+}
+
+.prose a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.prose thead {
+  color: var(--color-text);
+  border-bottom-color: var(--color-border);
+}
+
+.prose tbody tr {
+  border-bottom-color: var(--color-border);
+}
+
+/* Inline code styling inside markdown prose */
+.prose code:not(pre code) {
+  background-color: var(--color-surface-3);
+  color: var(--color-accent-bright);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+}
+
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+/* Thinking dots animation */
+@keyframes thinking-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-5px); opacity: 1; }
+}
+
+.thinking-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  animation: thinking-bounce 1.2s ease-in-out infinite;
+}
+
+.thinking-dot:nth-child(2) { animation-delay: 0.2s; }
+.thinking-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Streaming cursor animation */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.streaming-cursor::after {
+  content: "▋";
+  animation: blink 1s step-end infinite;
+  color: var(--color-accent);
+  margin-left: 2px;
+}
+
+/* Sequence diagram styling */
+.sequence-diagram {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.sequence-diagram img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
