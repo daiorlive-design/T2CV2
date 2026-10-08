@@ -87,7 +87,9 @@ export function InputBar({ onSend, onStop, isStreaming, placeholder, prefill, on
           </button>
         )}
       </div>
-      <p className="text-[11px] text-gray-500">Thoughts2Code can make mistakes. Check important info.</p>
+      <p className="text-[11px] text-gray-500 text-center">
+        Don't share personal information: messages go to an external AI service. Thoughts2Code can make mistakes.
+      </p>
     </div>
   );
 }
