@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Sidebar } from "./components/layout/Sidebar";
 import { ChatView } from "./components/chat/ChatView";
 import { useChatStore } from "./stores/chatStore";
+import { PrivacyNotice } from "./components/common/PrivacyNotice";
 
 const fontFamilies = {
   arial: "Arial, Helvetica, sans-serif",
@@ -32,6 +33,7 @@ export default function App() {
       <main className="flex-1 flex flex-col min-w-0">
         <ChatView />
       </main>
+      <PrivacyNotice />
     </div>
   );
 }
