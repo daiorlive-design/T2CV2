@@ -68,7 +68,7 @@ export function PrivacyNotice() {
             Your conversations are also saved for this research study, identified only by your
             participant code.
           </li>
-          li>
+            <li>
                The AI can make mistakes. Always check its answers and code before you use or trust them.
              </li>
         </ul>
